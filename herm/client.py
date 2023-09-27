@@ -37,7 +37,7 @@ class JobClient:
         }
         
         response = requests.post("https://api.hermsea.com/beta/v1/jobs", headers={
-            "Authorization": f"Bearer {api_key}",
+            "X-API-Key": api_key,
             "X-Herm-ID": self.job_id,
         }, files=files)
         
@@ -50,7 +50,7 @@ class JobClient:
             response2 = requests.get("https://api.hermsea.com/beta/v1/jobs/status", 
                     params={"jobinstanceid": jobinstanceid},
                     headers={
-                        "Authorization": f"Bearer {api_key}",
+                        "X-API-Key": api_key,
                         "Content-Type": "application/json",
                     }
                 )

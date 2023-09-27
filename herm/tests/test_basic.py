@@ -11,7 +11,7 @@ def test_jobs_post():
     import time
     
     response = requests.post("https://api.hermsea.com/beta/v1/jobs", headers={
-        "Authorization": f"Bearer {herm.api_key}",
+        "X-API-Key": herm.api_key,
         "X-Herm-ID": "befe8b5d-54c8-4a36-85d1-a921af98994f",
         "Content-Type": "multipart/form-data",
     })
@@ -26,7 +26,7 @@ def test_jobs_post():
     response = requests.get("https://api.hermsea.com/beta/v1/jobs/status", 
                 params={"jobinstanceid": jobinstanceid},
                 headers={
-                    "Authorization": f"Bearer {herm.api_key}",
+                    "X-API-Key": herm.api_key,
                     "Content-Type": "application/json",
                 }
             )
